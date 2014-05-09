@@ -42,15 +42,17 @@
 		</div>
 	</div>
 
-<script src="jquery-1.11.0.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="../jquery.scrollinglist.js"></script>
 
 <script>
-	$('#scroll-text').scrollinglist({
-		pauseOnHover: true,
-		delay: 2000,
-		developing: true,
-		startFromBottom: true
+	$(document).ready(function(){
+		$('#scroll-text').scrollinglist({
+			pauseOnHover: true,
+			delay: 2000,
+			developing: true,
+			startFromBottom: false
+		});
 	});
 </script>
 

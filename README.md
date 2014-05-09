@@ -39,8 +39,3 @@ $('#scrollinglist').scrollinglist();
 ## License
 
 jQuery Scrollbox is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
-
-```js
-Linguist::FileBlob.new("lib/linguist.rb").language.name #=> "Ruby"
-Linguist::FileBlob.new("bin/linguist").language.name #=> "Ruby"
-```

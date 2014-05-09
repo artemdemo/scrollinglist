@@ -10,15 +10,13 @@
 
 	$.fn.scrollinglist = function(config) {
 
-		// ToDo: start from the bottom
 		var defConfig = {
-			speed: 2000,		//animation speed
+			speed: 1500,		//animation speed
 			delay: 1000,		//delay after each step
 			pauseOnHover: true,	//pause animation when mouse is hovering container
 			developing: false,	//developing mode allow to show warnings and errors
 			startFromBottom: false,
 		}
-
 		config = $.extend(defConfig, config);
 
 		var $container = $(this);
@@ -42,6 +40,11 @@
 		// Now I need to change position to relative for animation
 		$list.css('position', 'relative');
 
+		if (config.startFromBottom) {
+			var top = container_height;
+			$list.css('top', top);
+		}
+
 		move_list();
 
 		function move_list() {
@@ -52,6 +55,11 @@
 			var $first_child = $( $list.children()[0] );
 			var first_child_height = $first_child.height();
 			var moving_height = (-1)*first_child_height - container_list_gap;
+
+			//In case of startFromButton I need only to go to the top of my container
+			if (config.startFromBottom) {
+				moving_height = 0;
+			}
 
 			//After pausing I can't use same speed, because I moved, therefor my speed must be slower
 			//I need to recalculate it
@@ -66,11 +74,17 @@
 				step: function() {
 				},
 				complete: function(){
-					
-					//Append take first element and put it at the end of the list
-					//I also put delay here
-					$list.delay( config.delay ).append( $first_child );
-					$list.css('top', '0');
+					if (config.startFromBottom) {
+						//In case of startFromButton I don't want to move first child, only cancel this option
+						config.startFromBottom = false;
+						//I need following string only to apply delay
+						$list.delay( config.delay ).css('top', '0');
+					} else {
+						//Append take first element and put it at the end of the list
+						//I also put delay here
+						$list.delay( config.delay ).append( $first_child );
+						$list.css('top', '0');
+					}
 
 					move_list();
 				}
