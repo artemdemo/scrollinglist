@@ -1,0 +1,28 @@
+body {
+	font-family: Arial;
+	font-size: 15px;
+	color: #2E2E2E;
+}
+.scroll-text-container {
+	border:1px dashed #aaaaaa;
+	padding: 7px;
+	width: 300px;
+	margin: 150px auto;
+}
+#scroll-text {
+	overflow: hidden;
+	height: 300px;
+}
+#scroll-text ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+#scroll-text ul li {
+	padding-bottom: 15px;
+	margin-bottom: 15px;
+	border-bottom: 2px dashed #1F6383;	
+}
+p {
+	margin: 5px 0;
+}

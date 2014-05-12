@@ -1,32 +1,8 @@
 <html>
 <head>
 	<title>Demo ScrollingList</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
-	<style>
-		body {
-			font-family: Arial;
-			font-size: 15px;
-			color: #2E2E2E;
-		}
-		.scroll-text-container {
-			border:1px dashed #aaaaaa;
-			padding: 5px;
-			width: 300px;
-			margin: 50px auto;
-		}
-		#scroll-text {
-			overflow: hidden;
-			height: 300px;
-		}
-		#scroll-text ul {
-			list-style-type: none;
-			margin: 0;
-			padding: 0;
-		}
-		p {
-			margin: 5px 0;
-		}
-	</style>
 <body>
 	<div class="scroll-text-container">
 		<div id="scroll-text">
@@ -49,9 +25,10 @@
 	$(document).ready(function(){
 		$('#scroll-text').scrollinglist({
 			pauseOnHover: true,
-			delay: 2000,
+			speed: 700,
+			delay: 1700,
 			developing: true,
-			startFromBottom: false
+			startFromBottom: true
 		});
 	});
 </script>

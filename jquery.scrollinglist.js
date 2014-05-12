@@ -53,8 +53,10 @@
 				return;
 			}
 			var $first_child = $( $list.children()[0] );
-			var first_child_height = $first_child.height();
-			var moving_height = (-1)*first_child_height - container_list_gap;
+			var $second_child = $( $list.children()[1] );
+
+			//I need to move only to the top of the second child in the list
+			var moving_height = (-1)*$second_child.position().top;
 
 			//In case of startFromButton I need only to go to the top of my container
 			if (config.startFromBottom) {
@@ -63,7 +65,7 @@
 
 			//After pausing I can't use same speed, because I moved, therefor my speed must be slower
 			//I need to recalculate it
-			var speed_coof = (first_child_height + $list.position().top - list_start_position.top + container_list_gap) / first_child_height;
+			var speed_coof = (moving_height + $list.position().top - list_start_position.top + container_list_gap) / moving_height;
 			if (speed_coof > 1) speed_coof = 1;
 			var speed = config.speed * speed_coof;
 
