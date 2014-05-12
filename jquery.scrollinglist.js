@@ -58,6 +58,10 @@
 			//I need to move only to the top of the second child in the list
 			var moving_height = (-1)*$second_child.position().top;
 
+			if ( container_height > list_height + moving_height ) {
+				if (config.developing) console.warn('scrollinglist --> Notice: List is too short. While moving you will see white spave under it');
+			}
+
 			//In case of startFromButton I need only to go to the top of my container
 			if (config.startFromBottom) {
 				moving_height = 0;
