@@ -5,7 +5,7 @@ jQuery ScrollingList is a lightweight plugin that enables you to scroll a list o
 ## Features
 
 * Simple and lightweight
-* Horizontal scroll
+* Vertical scroll
 * Auto play
 * Multiple instances on one page
 * Pause on hover over
