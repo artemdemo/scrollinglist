@@ -70,7 +70,7 @@
 			//After pausing I can't use same speed, because I moved, therefor my speed must be slower
 			//I need to recalculate it
 			var speed_coof = (moving_height + $list.position().top - list_start_position.top + container_list_gap) / moving_height;
-			if (speed_coof > 1) speed_coof = 1;
+			if (speed_coof > 1 || speed_conf < -1) speed_coof = 1;
 			var speed = config.speed * speed_coof;
 
 			$list.animate({
